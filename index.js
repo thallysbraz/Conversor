@@ -1,14 +1,16 @@
 const fs = require("fs");
 
-fs.writeFile("./teste.json", "{idade: 20}", err => {
-  if (err) {
-    console.log("falhou na escrita");
-  }
-});
-
 fs.readFile("./teste.json", { encoding: "utf-8" }, (erro, dado) => {
   if (erro) {
     console.log("falhou");
   }
-  console.log(dado);
+  var dados = JSON.parse(dado);
+  dados.nome = "Thallys Silva Braz";
+
+  fs.writeFile("./teste.json", JSON.stringify(dados), erro => {
+    if (erro) {
+      console.log("erro na escrita");
+    }
+    console.log("deu certo");
+  });
 });
