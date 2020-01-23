@@ -1,0 +1,12 @@
+{
+  "name": "Conversor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/thallysbraz/Conversor",
+  "author": "thallysbraz <thallysbraz3@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security"
+  }
+}
