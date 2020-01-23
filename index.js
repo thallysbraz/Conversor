@@ -23,6 +23,7 @@ async function modificarArquivo(nome, curso, categoria) {
     curso: curso,
     categoria: categoria
   });
+  //função splice pra remover algo de dentro do objeto
   dados.forEach((info, index) => {
     if (info.nome === "Braz") {
       dados.splice(index, 1);
