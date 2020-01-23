@@ -1,16 +1,49 @@
 const fs = require("fs");
 
-fs.readFile("./teste.json", { encoding: "utf-8" }, (erro, dado) => {
-  if (erro) {
-    console.log("falhou");
-  }
-  var dados = JSON.parse(dado);
-  dados.nome = "Thallys Silva Braz";
+async function modificarArquivo(nome, curso, categoria) {
+  //lendo arquivo json
+  var informa = fs.readFileSync(
+    "./user.json",
+    { encoding: "utf-8" },
+    (erro, dado) => {
+      if (erro) {
+        console.log("falhou");
+      }
+      return res.dado;
+    }
+  );
+  console.log(informa);
 
-  fs.writeFile("./teste.json", JSON.stringify(dados), erro => {
+  //guardando objeto json
+  var dados = JSON.parse(informa);
+
+  //metodo push pra inserir novas informações no Json
+  await dados.push({
+    nome: nome,
+    curso: curso,
+    categoria: categoria
+  });
+  dados.forEach((info, index) => {
+    if (info.nome === "Braz") {
+      dados.splice(index, 1);
+    }
+  });
+
+  //gravando Json atualizado
+  await fs.writeFile("./user.json", JSON.stringify(dados), erro => {
     if (erro) {
       console.log("erro na escrita");
     }
-    console.log("deu certo");
   });
-});
+
+  //percorrendo json pra ver as mudanças
+  dados.forEach((info, index) => {
+    console.log(`Posição: ${index}`);
+    console.log(`Nome: ${info.nome}`);
+    console.log(`Curso: ${info.curso}`);
+    console.log(`Categoria: ${info.categoria}`);
+    console.log("---------------------------------");
+  });
+}
+
+modificarArquivo("FunctionNomeNovo", "FunctionNomeNovo", "FunctionNomeNovo");
