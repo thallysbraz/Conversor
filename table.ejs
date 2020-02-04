@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tabela</title>
+  </head>
+  <body>
+    <table class="table table-hover">
+      <thead>
+        <% header.forEach(col => { %>
+        <th><%= col %></th>
+        <% }) %>
+      </thead>
+      <tbody>
+        <% rows.forEach(row => { %>
+        <tr>
+          <% row.forEach(element => { %>
+          <td>
+            <%= element %>
+          </td>
+          <% }) %>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
