@@ -2,17 +2,12 @@ const fs = require("fs");
 
 async function modificarArquivo(nome, curso, categoria) {
   //lendo arquivo json
-  var informa = fs.readFileSync(
-    "./user.json",
-    { encoding: "utf-8" },
-    (erro, dado) => {
-      if (erro) {
-        console.log("falhou");
-      }
-      return res.dado;
+  var informa = fs.readFileSync("./user.json", { encoding: "utf-8" }, erro => {
+    if (erro) {
+      console.log("falhou");
     }
-  );
-  console.log(informa);
+    return res.dado;
+  });
 
   //guardando objeto json
   var dados = JSON.parse(informa);
@@ -25,7 +20,7 @@ async function modificarArquivo(nome, curso, categoria) {
   });
   //função splice pra remover algo de dentro do objeto
   dados.forEach((info, index) => {
-    if (info.nome === "Braz") {
+    if (info.nome === "FunctionNome") {
       dados.splice(index, 1);
     }
   });
