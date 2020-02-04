@@ -11,7 +11,8 @@ async function main() {
 
   var table = new Table(dadosProcessados);
 
-  console.log(table.rows);
+  console.log(table.RowCount);
+  console.log(table.ColumnCount);
 }
 
 main();
