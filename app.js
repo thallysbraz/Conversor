@@ -2,4 +2,9 @@ var Reader = require("./Reader");
 
 var leitor = new Reader();
 
-leitor.Read("./Horas.csv");
+async function main() {
+  var dados = await leitor.Read("./Horas.csv");
+  console.log(dados);
+}
+
+main();
