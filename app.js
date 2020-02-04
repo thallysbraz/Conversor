@@ -1,12 +1,17 @@
 var Reader = require("./Reader");
 var Processor = require("./Processor");
+var Table = require("./Table");
 
 var leitor = new Reader();
 
 async function main() {
-  var dados = await leitor.Read("./Horas.csv");
+  var dados = await leitor.Read("./Horas.csv"); //lendo arquivo
 
-  Processor.Process(dados);
+  var dadosProcessados = Processor.Process(dados); //processando dados
+
+  var table = new Table(dadosProcessados);
+
+  console.log(table.rows);
 }
 
 main();
